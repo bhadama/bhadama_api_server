@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 //Setting Server
 const app = express();
-const http = require('http');
 const db = require('./db.js');
 const router = express.Router();
 
@@ -24,7 +23,9 @@ app.use('/auth', require('./controller/auth-controller'));
 app.use('/users', require('./controller/user-controller'));
 app.use('/trades', require('./controller/trade-controller'));
 app.use('/stocks', require('./controller/stock-controller'));
-
+app.use('/', (req,res)=>{
+    res.send({data:"Welcome to bhadama..."})
+})
 
 
 process.on('uncaughtException', function(err) {
