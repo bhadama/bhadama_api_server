@@ -5,13 +5,16 @@ const Schema = mongoose.Schema;
 
 // Create Schema objects for User
 const userSchema = new Schema({
-    name: {
+    username: {
         type: String,
-        trim: true
+        trim: true,
+        required:true
     },
-    id: {
+    phone_number: {
         type: String,
-        trim: true
+        trim: true,
+        required:true
+
     },
     address: {
         type: String,
@@ -22,10 +25,15 @@ const userSchema = new Schema({
         trim: true,
         required: true
     },
-    password: {
+    pin: {
         type: String,
         required: true
-    }
+    },
+    otp: {
+        type: String,
+        trim: true
+    },
+
 }, {
     timestamps: true
 });

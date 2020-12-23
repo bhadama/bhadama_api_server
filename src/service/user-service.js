@@ -6,7 +6,9 @@ const UserService = {
     //API to signup
     create: (userDetail) => {
         return new Promise((resolve, reject) => {
-            userDAO.checkExist(userDetail.name).then((data) => {
+            if(!userDetail.username || !userDetail.phone_number || !userDetail.email || !userDetail.pin)
+                reject({ status: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA })
+            userDAO.checkExist(userDetail.phone_number).then((data) => {
                 if (data) {
                     reject({ status: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.USER.USER_ALREADY_REGISTERED });
                 } else {

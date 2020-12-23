@@ -1,15 +1,15 @@
 const constant = {
     MONGO_URI: 'mongodb://localhost:27017/bhadama',
-    PORT: 80,
+    PORT: 4000,
     HTML_STATUS_CODE: { SUCCESS: 200, CREATED: 201, UNAUTHORIZED: 401, INVALID_DATA: 406, INTERNAL_ERROR: 500, BAD_REQUEST: 400, NOT_FOUND: 404, INVALID_CREDENTIAL: 405 },
 
-    MODEL_NAME: { TRADE: 'trades', USER: 'users' },
+    MODEL_NAME: { TRADE: 'homes', USER: 'users' },
     MESSAGE: {
         USER: {
-            USER_ALREADY_REGISTERED: 'It seems like user is already registered with the same UserName.',
+            USER_ALREADY_REGISTERED: 'It seems like user is already registered with the same phone number.',
             MESSAGE_UNAUTHORIZED_USER: 'Unauthorized User',
             MESSAGE_INVALID_CREDENTIALS: 'Invalid Credentials.',
-            NOT_REGISTERED: 'User not registered with the given UserName.',
+            NOT_REGISTERED: 'User not registered with the given Phone Number.',
             LOGIN_SECCESS: 'User loggedin successfully',
             CREATED: 'New user created. Please login to continue..'
         },

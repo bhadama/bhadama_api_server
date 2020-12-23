@@ -5,19 +5,19 @@ const AuthService = {
     //API to Login
     signIn: (userDetail) => {
         return new Promise((resolve, reject) => {
-            if (!userDetail.name || !userDetail.password) {
+            if (!userDetail.phone_number || !userDetail.pin) {
                 reject({ status: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA });
             }
-            userDAO.checkExist(userDetail.name).then((userData) => {
+            userDAO.checkExist(userDetail.phone_number).then((userData) => {
                 if (userData) {
-                    let isMatched = userDAO.comparePassword(userDetail.password, userData.password);
+                    let isMatched = userDAO.comparePassword(userDetail.pin, userData.pin);
                     if (isMatched) {
                         try {
-                            const payLoad = { _id: userData._id, email: userData.email, name: userData.name, address: userData.address };
+                            const payLoad = { _id: userData._id, email: userData.email, username: userData.username, address: userData.address };
                             const _token = jwt.sign(payLoad, constant.JWT.SECRET, {
                                 expiresIn: constant.JWT.TOKEN_TIMEOUT
                             });
-                            delete userData._doc.password;
+                            delete userData._doc.pin;
                             resolve({
                                 message: constant.MESSAGE.USER.LOGIN_SECCESS,
                                 accessToken: _token
