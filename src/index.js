@@ -18,6 +18,10 @@ app.use(bodyParser.json({ limit: '50mb', extended: false }));
 app.use(cors());
 
 console.log('hello index');
+app.use((req,res,next)=>{
+    console.log('middleware req body---',req.body);
+    next();
+})
 //Routes to Controller
 app.use('/auth', require('./controller/auth-controller'));
 app.use('/users', require('./controller/user-controller'));
