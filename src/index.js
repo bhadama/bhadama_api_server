@@ -29,7 +29,7 @@ app.use('/trades', require('./controller/trade-controller'));
 app.use('/stocks', require('./controller/stock-controller'));
 
 app.use('/', (req,res)=>{
-    res.send({data:"Server is Up..."})
+    res.send({data:"Server is Uppp..."})
 })
 
 
