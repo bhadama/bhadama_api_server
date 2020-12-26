@@ -7,6 +7,10 @@ const route = express.Router();
 //API to signup
 route.post('/', (req, res) => {
     userService.create(req.body).then((result) => {
+        console.log('hello');
+        console.log('req headers auth--', req.headers);
+
+
         console.log('req.payload',req.body);
         res.status(constant.HTML_STATUS_CODE.CREATED).json(response.success(constant.HTML_STATUS_CODE.CREATED, result));
     }).catch((error) => {

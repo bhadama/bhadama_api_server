@@ -8,7 +8,8 @@ const response = require('../utils/custom-response');
 //API to login
 route.post('/', (req, res) => {
     authService.signIn(req.body).then((result) => {
-        console.log('login req.payload',JSON.stringify(req.body));
+        console.log('req headers auth--', req.headers);
+        console.log('login req.payload in auth',req.body);
 
         res.status(constant.HTML_STATUS_CODE.SUCCESS).json(response.success(constant.HTML_STATUS_CODE.SUCCESS, result));
     }).catch((error) => {

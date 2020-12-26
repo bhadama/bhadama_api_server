@@ -17,7 +17,7 @@ app.use('/', router);
 app.use(bodyParser.json({ limit: '50mb', extended: false }));
 app.use(cors());
 
-
+console.log('hello index');
 //Routes to Controller
 app.use('/auth', require('./controller/auth-controller'));
 app.use('/users', require('./controller/user-controller'));
