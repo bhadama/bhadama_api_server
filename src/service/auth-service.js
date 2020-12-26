@@ -6,7 +6,7 @@ const AuthService = {
     signIn: (userDetail) => {
         return new Promise((resolve, reject) => {
             if (!userDetail.phone_number || !userDetail.pin) {
-                reject({ status: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA });
+                reject({ status: constant.HTML_STATUS_CODE.SUCCESS, statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA });
             }
             userDAO.checkExist(userDetail.phone_number).then((userData) => {
                 if (userData) {
@@ -23,19 +23,19 @@ const AuthService = {
                                 accessToken: _token
                             });
                         } catch (error) {
-                            reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR });
+                            reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR, statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR });
                         }
                     } else {
-                        reject({ status: constant.HTML_STATUS_CODE.UNAUTHORIZED, message: constant.MESSAGE.USER.MESSAGE_INVALID_CREDENTIALS });
+                        reject({ status: constant.HTML_STATUS_CODE.SUCCESS, statusCode: constant.HTML_STATUS_CODE.INVALID_CREDENTIAL,message: constant.MESSAGE.USER.MESSAGE_INVALID_CREDENTIALS });
                     }
 
                 } else {
-                    reject({ status: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.USER.NOT_REGISTERED });
+                    reject({ status: constant.HTML_STATUS_CODE.SUCCESS,statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.USER.NOT_REGISTERED });
 
                 }
 
             }).catch(error => {
-                reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.USER.INTERNAL_ERROR });
+                reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR,statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.USER.INTERNAL_ERROR });
 
 
             })
