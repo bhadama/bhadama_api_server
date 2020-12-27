@@ -10,7 +10,6 @@ const UserDAO = {
             phone_number:userDetail.phone_number
         }).save();
     },
-
     checkExist: (phone_number) => {
         return userModel.findOne({ phone_number });
     },
@@ -19,6 +18,9 @@ const UserDAO = {
     },
     getById: (data) => {
         return userModel.findOne({ _id: data });
+    },
+    saveNewPin:(data)=>{
+        return  userModel.updateOne({phone_number:data.phone_number},{$set:{pin:data.pin}})
     }
 }
 

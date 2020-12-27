@@ -7,14 +7,35 @@ const route = express.Router();
 //API to signup
 route.post('/', (req, res) => {
     userService.create(req.body).then((result) => {
-        console.log('req.payload',req.body);
         res.status(constant.HTML_STATUS_CODE.CREATED).json(response.success(constant.HTML_STATUS_CODE.CREATED, result));
     }).catch((error) => {
-        console.log('error', error);
+       res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message }));
+    });
+});
+
+//API to forgotpassword
+route.post('/forgotpassword', (req, res) => {
+    userService.forgotpassword(req.body).then((result) => {
+       res.status(constant.HTML_STATUS_CODE.CREATED).json(response.success(constant.HTML_STATUS_CODE.CREATED, result));
+    }).catch((error) => {
+        res.status(error.status || constant.HTML_STATUS_CODE.SUCCESS).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message }));
+    });
+});
+
+route.post('/verifyotp', (req, res) => {
+    userService.verifyOtp(req.body).then((result) => {
+       res.status(constant.HTML_STATUS_CODE.CREATED).json(response.success(constant.HTML_STATUS_CODE.CREATED, result));
+    }).catch((error) => {
         res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message }));
     });
 });
 
-
+route.put('/newpin', (req, res) => {
+    userService.newPin(req.body).then((result) => {
+        res.status(constant.HTML_STATUS_CODE.CREATED).json(response.success(constant.HTML_STATUS_CODE.CREATED, result));
+    }).catch((error) => {
+        res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message }));
+    });
+});
 
 module.exports = route;

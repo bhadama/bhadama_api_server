@@ -2,7 +2,6 @@ const constant = {
     MONGO_URI: 'mongodb://localhost:27017/bhadama',
     PORT: 80,
     HTML_STATUS_CODE: { SUCCESS: 200, CREATED: 201, UNAUTHORIZED: 401, INVALID_DATA: 406, INTERNAL_ERROR: 500, BAD_REQUEST: 400, NOT_FOUND: 404, INVALID_CREDENTIAL: 405 },
-
     MODEL_NAME: { TRADE: 'homes', USER: 'users' },
     MESSAGE: {
         USER: {
@@ -11,7 +10,12 @@ const constant = {
             MESSAGE_INVALID_CREDENTIALS: 'Invalid Credentials.',
             NOT_REGISTERED: 'User not registered with the given Phone Number.',
             LOGIN_SECCESS: 'User loggedin successfully',
-            CREATED: 'New user created. Please login to continue..'
+            CREATED: 'New user created. Please login to continue..',
+            SENTMAIL:'Please check your mail for OTP',
+            OTPEXPIRED:'OTP got expired..please  click on resend otp',
+            WRONGOTP:'Please enter the correct otp',
+            OTPSUCESS:"OTP verified successfully",
+            PINUPDATED:"Pin updated successfully"
         },
         TRADE: {
             ALREADY_EXIST: 'Trade is already exists',
@@ -33,7 +37,7 @@ const constant = {
     },
     JWT: {
         SECRET: 'trade@assign',
-        TOKEN_TIMEOUT: '1h',
+        TOKEN_TIMEOUT: '120d',
 
     }
 

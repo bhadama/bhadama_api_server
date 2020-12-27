@@ -11,6 +11,8 @@
         "jsonwebtoken": "^8.5.1",
         "mocha": "^7.1.2",
         "mongoose": "^5.9.12",
+        "node-cache": "^5.1.2",
+        "nodemailer": "^6.4.17",
         "supertest": "^4.0.2",
         "swagger-ui-express": "^4.1.4"
     },
