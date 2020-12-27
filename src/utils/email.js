@@ -25,7 +25,7 @@ function sendingMail(toMail,text,subject)
      mailOptions.to=toMail;
     //  mailOptions.text=text;
      mailOptions.subject=subject;
-     mailOptions.html=`<p><b>${text}</b> is teh OTP for forgot password</p>`;
+     mailOptions.html=`<p><b>${text}</b> is the OTP for forgot password</p>`;
     smtpTransport.sendMail(mailOptions, function(error, response){
         if(error){
             console.log('Sending mail error--', error);
