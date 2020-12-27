@@ -6,12 +6,12 @@ let smtpTransport = nodemailer.createTransport({
     ignoreTLS: false,
     secure: false,
     auth: {
-      user: "sandeepkj90@gmail.com",
-      pass: "sandy@meandev123"
+      user: "awstest725@gmail.com",
+      pass: "softdev123"
     }
   });
   var mailOptions = {
-    from: 'sandeepkj90@gmail.com',
+    from: 'awstest725@gmail.com',
     to: "",
     subject: 'to create  new password',
     text: 'Testing Nodemailer so chill...',
