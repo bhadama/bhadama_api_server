@@ -6,8 +6,8 @@ let smtpTransport = nodemailer.createTransport({
     ignoreTLS: false,
     secure: false,
     auth: {
-      user: "awstest725@gmail.com",
-      pass: "softdev123"
+      user: "sandeepkj90@gmail.com",
+      pass: "sandy@meandev123"
     }
   });
   var mailOptions = {
