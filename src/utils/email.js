@@ -26,11 +26,15 @@ function sendingMail(toMail,text,subject)
      mailOptions.subject=subject;
     smtpTransport.sendMail(mailOptions, function(error, response){
         if(error){
+            console.log('Sending mail error--', error);
+
             reject(error)
         }else{
+            console.log('Sending mail response--', response);
+
             resolve(response)
         }
     });
 })
 }
- module.exports=sendingMail
+ module.exports=sendingMail;
