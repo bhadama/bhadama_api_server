@@ -47,7 +47,7 @@ const UserService = {
             }
             else{
                 let mailid=data.email;
-                let generatedOtp=otp.getRandomString(4);
+                let generatedOtp=`<b>${otp.getRandomString(4)}</b> is teh OTP for forgot password`;
                 let subject="Otp for reset pin";
                 sendMail(mailid,generatedOtp,subject).then((data)=>{
                     console.log('Sending mail userService--', data);
