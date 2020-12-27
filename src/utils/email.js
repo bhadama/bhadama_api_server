@@ -3,7 +3,8 @@ const nodemailer=require('nodemailer')
 let smtpTransport = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 587,
-    secure: false, // upgrade later with STARTTLS
+    ignoreTLS: false,
+    secure: false,
     auth: {
       user: "awstest725@gmail.com",
       pass: "softdev123"
