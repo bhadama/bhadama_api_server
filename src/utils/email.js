@@ -11,7 +11,7 @@ let smtpTransport = nodemailer.createTransport({
     }
   });
   var mailOptions = {
-    from: 'awstest725@gmail.com',
+    from: 'sandeepkj90@gmail.com',
     to: "",
     subject: 'to create  new password',
     text: 'Testing Nodemailer so chill...',
