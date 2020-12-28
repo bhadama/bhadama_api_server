@@ -91,6 +91,9 @@ const UserService = {
         if(!payload.phone_number){
             reject({ status: constant.HTML_STATUS_CODE.SUCCESS,statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA })
         }
+        if(!payload.pin){
+            reject({ status: constant.HTML_STATUS_CODE.SUCCESS,statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA })
+        }
         else{
             userDAO.saveNewPin(payload).then(data=>{
                 console.log('data inside setNewPin userService--', data);
