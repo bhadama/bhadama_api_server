@@ -39,7 +39,17 @@ const constant = {
         SECRET: 'trade@assign',
         TOKEN_TIMEOUT: '120d',
 
+    },
+    S3:{
+        credential: {
+            accessKeyId: 'AKIAIBNUQXFAZJEDQRLA',
+            secretAccessKey: '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',
+            region: 'us-east-2'
+        },
+        baseUrl:'https://bhadamabucket.s3.us-east-2.amazonaws.com',
+        bucketName: 'bhadamabucket'
     }
+    
 
 }
 module.exports = constant;

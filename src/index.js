@@ -26,7 +26,7 @@ app.use(cors());
 app.use('/auth', require('./controller/auth-controller'));
 app.use('/users', require('./controller/user-controller'));
 app.use('/trades', require('./controller/trade-controller'));
-app.use('/stocks', require('./controller/stock-controller'));
+app.use('/files', require('./controller/file-controller'));
 
 app.use('/', (req,res)=>{
     res.send({data:"Server is Uppp..."})
