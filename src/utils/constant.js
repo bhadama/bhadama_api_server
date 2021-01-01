@@ -2,7 +2,7 @@ const constant = {
     MONGO_URI: 'mongodb://localhost:27017/bhadama',
     PORT: 80,
     HTML_STATUS_CODE: { SUCCESS: 200, CREATED: 201, UNAUTHORIZED: 401, INVALID_DATA: 406, INTERNAL_ERROR: 500, BAD_REQUEST: 400, NOT_FOUND: 404, INVALID_CREDENTIAL: 405 },
-    MODEL_NAME: { TRADE: 'homes', USER: 'users' },
+    MODEL_NAME: { TRADE: 'homes', USER: 'users',PROPERTIES:'properties' },
     MESSAGE: {
         USER: {
             USER_ALREADY_REGISTERED: 'It seems like user is already registered with the same phone number.',
