@@ -25,7 +25,7 @@ app.use(cors());
 //Routes to Controller
 app.use('/auth', require('./controller/auth-controller'));
 app.use('/users', require('./controller/user-controller'));
-app.use('/trades', require('./controller/trade-controller'));
+app.use('/properties', require('./controller/properties-controller'));
 app.use('/files', require('./controller/file-controller'));
 
 app.use('/', (req,res)=>{

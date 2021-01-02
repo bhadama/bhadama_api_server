@@ -17,12 +17,12 @@ const constant = {
             OTPSUCESS:"OTP verified successfully",
             PINUPDATED:"Pin updated successfully"
         },
-        TRADE: {
+        PROPERTY: {
             ALREADY_EXIST: 'Trade is already exists',
             NOT_EXIST: 'User not exist',
             NOT_EXIST_SYMBOL: 'Symbol not exist',
             NO_DATA: 'There are no trades in the given date range',
-            CREATED: 'New trade created',
+            CREATED: 'New property created',
             DELETED: 'Trade deleted successfully'
         },
         COMMON: {

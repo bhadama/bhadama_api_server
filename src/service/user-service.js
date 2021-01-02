@@ -3,13 +3,6 @@ const constant = require('../utils/constant');
 const sendMail = require('../utils/email');
 const otp = require('../utils/utilities');
 
-const express = require('express')
-const app = express()
-const port = 3000
-const bodyParser = require('body-parser');
-app.use(bodyParser.json());
-app.use(express.static('public')) // to integrate the static pages
-
 let NodeCache = require( "node-cache" );
 let myCache = new NodeCache({deleteOnExpire:true});
 

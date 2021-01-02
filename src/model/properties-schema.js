@@ -4,13 +4,13 @@ const constant = require('../utils/constant');
 const Schema = mongoose.Schema;
 
 const propertiesSchema = new Schema({
-    roomsize: {
+    roomSize: {
         type:String,
         required:true
     },
-    roomtype: {
+    roomType: {
         type:String,
-        required:true
+        default:''
     },
     rent: {
         type:Number,
@@ -22,17 +22,17 @@ const propertiesSchema = new Schema({
     },
     city: {
         type:String,
-        required:true
+        default:''
     },
     location: { 
-        type: Object,
-        "coordinates": [-73.856077, 40.848447]
+        type: {type: String, default:'Point'},
+        coordinates: [{type:String, required:true}]
     },
     place: {
         type:String,
         required:true
     },
-    furnushing: {
+    furnishing: {
         type:String,
         required:true
     },
@@ -40,56 +40,59 @@ const propertiesSchema = new Schema({
         type:String,
         required:true
     },
-    watersupply_other: {
-        type:Boolean
+    waterSupplyOther: {
+        type:Boolean,
+        default:false
     },
-    watersupply_nwscc: {
-        type:Boolean
+    waterSupplyNwscc: {
+        type:Boolean,
+        default:false
     },
-    watersupply_underground: {
-        type:Boolean
+    waterSupplyUnderground: {
+        type:Boolean,
+        default:false
     },
     twoWheeler:{
         type:Boolean,
-        required:true
+        default:false
     },
     fourWheeler: {
-        type:Boolean
+        type:Boolean,
+        default:false
     },
-    images: {
-        type:Array
-    },
+    images: [{type:String}],
     profileImage:{
-        type:Image,
+        type: String,
         required:true
     },
     advance: {
         type:Number,
-        required:true
+        default:0
+        
     },
     age: {
-        type:String
+        type:String,
+        default:''
+
+
     },
     facing:{
         type:String,
-        required:true
+        default:''
     },
-    Sqft: {
+    sqft: {
         type:String,
-        required:true 
-    },
-    createdAt:{
-        type:Date,
-        required:true
-    },
-    updatedAt: {
-        type:Date,
-        required:true
+        default:''
+        
     },
     approved: {
+        type:Boolean,
         default:false
     }
     
-})
+},{timestamps:true})
 
 module.exports = mongoose.model(constant.MODEL_NAME.PROPERTIES, propertiesSchema);
+
+
+
