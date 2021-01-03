@@ -23,7 +23,8 @@ const constant = {
             NOT_EXIST_SYMBOL: 'Symbol not exist',
             NO_DATA: 'There are no trades in the given date range',
             CREATED: 'New property created',
-            DELETED: 'Trade deleted successfully'
+            DELETED: 'Trade deleted successfully',
+            DATA_FOUND: 'Data found'
         },
         COMMON: {
             INTERNAL_ERROR: 'Sorry! Something went wrong.',
@@ -32,6 +33,7 @@ const constant = {
             MESSAGE_DATA_NOT_FOUND: 'Data not found.',
             MESSAGE_UNAUTHORIZED_ACCESS: 'You are not authorized for this action.',
             DATA_FOUND: 'Data found',
+            INVALID_PARAMS: 'Params Missing'
 
         }
     },

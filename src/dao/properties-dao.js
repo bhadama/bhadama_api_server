@@ -1,6 +1,6 @@
 const propertyModel = require('../model/properties-schema');
 const ProertyDAO = {
-    create: (propertyDetail) => {
+    create: (userId, propertyDetail) => {
         return new propertyModel({
             roomSize: propertyDetail.roomSize, 
             roomType:  propertyDetail.roomType,
@@ -21,11 +21,12 @@ const ProertyDAO = {
             advance: propertyDetail.advance,
             age: propertyDetail.age,
             facing:propertyDetail.facing,
-            sqft: propertyDetail.sqft
+            sqft: propertyDetail.sqft,
+            userId: userId
         }).save();
     },
-    checkExist: (phone_number) => {
-        return userModel.findOne({ phone_number });
+    getByUserId: (userId) => {
+        return propertyModel.find({ userId });
     },
     comparePassword: (reqPassword, UserPassword) => {
         return reqPassword == UserPassword;

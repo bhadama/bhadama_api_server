@@ -12,6 +12,10 @@ const propertiesSchema = new Schema({
         type:String,
         default:''
     },
+    userId:{
+        type: Schema.Types.ObjectId, 
+        ref: 'users'
+    },
     rent: {
         type:Number,
         required:true
