@@ -47,7 +47,7 @@ const UserService = {
 
                         myCache.set( payload.phone_number, generatedOtp, 300);
                         console.log('cache set data ', myCache.get(payload.phone_number));
-                        resolve({ status: constant.HTML_STATUS_CODE.SUCCESS,statusCode: constant.HTML_STATUS_CODE.SUCCESS, message: constant.MESSAGE.USER.SENTMAIL})
+                        resolve({ message: constant.MESSAGE.USER.SENTMAIL})
                         }).catch(error=>{
                             console.log('error in user service for sending mail/cache --', error);
                             reject({ status: constant.HTML_STATUS_CODE.SUCCESS,statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR})
