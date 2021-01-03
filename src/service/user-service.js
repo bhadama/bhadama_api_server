@@ -68,7 +68,7 @@ const UserService = {
         }
         else{
             if(payload.otp == cacheValue){
-                resolve({ status: constant.HTML_STATUS_CODE.SUCCESS,statusCode: constant.HTML_STATUS_CODE.SUCCESS, message: constant.MESSAGE.USER.OTPSUCESS})
+                resolve({  message: constant.MESSAGE.USER.OTPSUCESS})
             }
             else{
                 reject({ status: constant.HTML_STATUS_CODE.SUCCESS,statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.USER.WRONGOTP})
@@ -91,7 +91,7 @@ const UserService = {
             userDAO.saveNewPin(payload).then(data=>{
                 console.log('data inside setNewPin userService--', data);
 
-                resolve({ status: constant.HTML_STATUS_CODE.SUCCESS,statusCode: constant.HTML_STATUS_CODE.SUCCESS, message: constant.MESSAGE.USER.PINUPDATED})
+                resolve({ message: constant.MESSAGE.USER.PINUPDATED})
             }).catch(error=>{
                 console.log('error inside setNewPin userService--', error);
 
