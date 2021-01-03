@@ -12,9 +12,9 @@ const fileService = {
                 Body: file.buffer,
                 Key: `propertyImage_${new Date().getTime()}.png`
               }).then((res) => {
-                resolve(res.url);
+                resolve({data:res.url});
             }).catch((error) => {
-                reject(error);
+                reject({message:error});
             });
         })
     }
