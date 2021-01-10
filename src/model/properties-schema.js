@@ -65,10 +65,6 @@ const propertiesSchema = new Schema({
         default:false
     },
     images: [{type:String}],
-    profileImage:{
-        type: String,
-        required:true
-    },
     advance: {
         type:Number,
         default:0

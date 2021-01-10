@@ -17,7 +17,7 @@ const ProertyDAO = {
             twoWheeler:propertyDetail.twoWheeler,
             fourWheeler: propertyDetail.fourWheeler,
             images: propertyDetail.images,
-            profileImage:propertyDetail.profileImage,
+            // profileImage:propertyDetail.profileImage,
             advance: propertyDetail.advance,
             age: propertyDetail.age,
             facing:propertyDetail.facing,
