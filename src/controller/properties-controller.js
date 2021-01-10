@@ -11,7 +11,28 @@ route.post('/',isAuthenticate, (req, res) => {
     propertyService.create(req.user._id,req.body).then((result) => {
         res.status(constant.HTML_STATUS_CODE.CREATED).json(response.success(constant.HTML_STATUS_CODE.CREATED, result));
     }).catch((error) => {
-       res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message, req:{headers:req.headers,body:req.body} }));
+       res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message, req:{headers:req.headers,body:req.body, actualBody:{
+        "roomSize":"1",
+        "rent": 20000,
+        "availableFrom":"2019-01-02",
+        "location": { 
+            "coordinates": ["26.2342156", "80.6543245"]
+        },
+        "place": "Lalitpur kathmandu nepal",
+        "furnishing": true,
+        "tenants": "family",
+        "waterSupplyOther": true,
+        "waterSupplyNwscc": false,
+        "waterSupplyUnderground":false,
+        "twoWheeler":true,
+        "fourWheeler":false,
+        "images": ["http:localhost:80/image1","http:localhost:80/image2"],
+        "profileImage":"http:localhost:80/image1",
+        "advance": "200000",
+        "age": "20 years",
+        "facing":"North",
+        "sqft":"1024 sqrts"
+        }} }));
     });
 });
 
