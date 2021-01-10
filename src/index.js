@@ -16,7 +16,11 @@ app.use('/', router);
 
 app.use(bodyParser.json({ limit: '50mb', extended: false }));
 app.use(cors());
-
+app.use((req,res,next)=>{
+console.log('req', req.headers);
+console.log('req.body',req.body);
+next();
+})
 // console.log('hello index');
 // app.use((req,res,next)=>{
 //     console.log('middleware req body---',req.body);
