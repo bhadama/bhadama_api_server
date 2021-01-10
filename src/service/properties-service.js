@@ -5,7 +5,7 @@ const PropertyService = {
     create: (userId,propertyDetail) => {
 
         return new Promise((resolve, reject) => {
-            if(!propertyDetail.roomSize || !propertyDetail.rent  || !propertyDetail.availableFrom  || !propertyDetail.location || !propertyDetail.place || !propertyDetail.furnishing  || !propertyDetail.tenants)
+            if(!propertyDetail.roomSize || !propertyDetail.rent  || !propertyDetail.availableFrom  || !propertyDetail.location || !propertyDetail.place || !propertyDetail.hasOwnProperty('furnishing')  || !propertyDetail.tenants)
                 reject({ status: constant.HTML_STATUS_CODE.SUCCESS, statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA })
                     propertyDAO.create(userId,propertyDetail).then((result) => {
                         resolve({ message: constant.MESSAGE.PROPERTY.CREATED });

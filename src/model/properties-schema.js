@@ -92,6 +92,8 @@ const propertiesSchema = new Schema({
     
 },{timestamps:true})
 
+
+
 module.exports = mongoose.model(constant.MODEL_NAME.PROPERTIES, propertiesSchema);
 
 

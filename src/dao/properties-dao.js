@@ -1,27 +1,9 @@
 const propertyModel = require('../model/properties-schema');
 const ProertyDAO = {
     create: (userId, propertyDetail) => {
+        console.log('req.body inside dao--', propertyDetail,userId)
         return new propertyModel({
-            roomSize: propertyDetail.roomSize, 
-            roomType:  propertyDetail.roomType,
-            rent:propertyDetail.rent,
-            availableFrom: propertyDetail.availableFrom,
-            city:  propertyDetail.city,
-            location: propertyDetail.location,
-            place:  propertyDetail.place,
-            furnishing: propertyDetail.furnishing,
-            tenants:  propertyDetail.tenants,
-            waterSupplyOther:propertyDetail.waterSupplyOther,
-            waterSupplyNwscc:propertyDetail.waterSupplyNwscc,
-            waterSupplyUnderground:propertyDetail.waterSupplyUnderground,
-            twoWheeler:propertyDetail.twoWheeler,
-            fourWheeler: propertyDetail.fourWheeler,
-            images: propertyDetail.images,
-            // profileImage:propertyDetail.profileImage,
-            advance: propertyDetail.advance,
-            age: propertyDetail.age,
-            facing:propertyDetail.facing,
-            sqft: propertyDetail.sqft,
+            ...propertyDetail,
             userId: userId
         }).save();
     },
