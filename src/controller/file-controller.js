@@ -15,7 +15,7 @@ route.post('/uploads', multipartMiddleware.single('file'), (req, res) => {
     fileService.uploadFile(req.file).then((result) => {
         res.status(constant.HTML_STATUS_CODE.CREATED).json(response.success(constant.HTML_STATUS_CODE.CREATED, result));
     }).catch((error) => {
-       res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message }));
+       res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message , req: req.file, error}));
     });
 });
 
