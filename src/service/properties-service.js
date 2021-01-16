@@ -8,7 +8,7 @@ const PropertyService = {
             if(!propertyDetail.roomSize || !propertyDetail.rent  || !propertyDetail.availableFrom  || !propertyDetail.location || !propertyDetail.place || !propertyDetail.hasOwnProperty('furnishing')  || !propertyDetail.tenants)
                 reject({ status: constant.HTML_STATUS_CODE.SUCCESS, statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA })
                     propertyDAO.create(userId,propertyDetail).then((result) => {
-                        resolve({ message: constant.MESSAGE.PROPERTY.CREATED });
+                        resolve({ message: constant.MESSAGE.PROPERTY.CREATED , id: result._id});
                     }).catch((error) => {
                         reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR,statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR });
                     });
