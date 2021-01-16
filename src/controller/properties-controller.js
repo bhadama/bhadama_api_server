@@ -47,6 +47,39 @@ route.get('/', isAuthenticate, (req, res) => {
     });
 });
 
+route.get('/:propertyId', (req, res) => {
+    // let propertyId= req.params.propertyId;
+    // if(!propertyId)
+    //    res.status(constant.HTML_STATUS_CODE.SUCCESS).json(response.error(constant.HTML_STATUS_CODE.INVALID_DATA || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: constant.MESSAGE.COMMON.INVALID_PARAMS }));
+    propertyService.getByPropertyId(req.params.propertyId).then((result) => {
+        res.status(constant.HTML_STATUS_CODE.SUCCESS).json(response.success(constant.HTML_STATUS_CODE.SUCCESS, result));
+    }).catch((error) => {
+       res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message,req:{headers:req.headers,body:req.body} }));
+    });
+});
+
+route.patch('/:propertyId', isAuthenticate, (req, res) => {
+    // let propertyId= req.params.propertyId;
+    // if(!propertyId)
+    //    res.status(constant.HTML_STATUS_CODE.SUCCESS).json(response.error(constant.HTML_STATUS_CODE.INVALID_DATA || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: constant.MESSAGE.COMMON.INVALID_PARAMS }));
+    propertyService.updateByPropertyId(req.params.propertyId, req.user._id, req.body).then((result) => {
+        res.status(constant.HTML_STATUS_CODE.SUCCESS).json(response.success(constant.HTML_STATUS_CODE.SUCCESS, result));
+    }).catch((error) => {
+       res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message,req:{headers:req.headers,body:req.body} }));
+    });
+});
+
+route.delete('/:propertyId', isAuthenticate, (req, res) => {
+    // let propertyId= req.params.propertyId;
+    // if(!propertyId)
+    //    res.status(constant.HTML_STATUS_CODE.SUCCESS).json(response.error(constant.HTML_STATUS_CODE.INVALID_DATA || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: constant.MESSAGE.COMMON.INVALID_PARAMS }));
+    propertyService.deleteByPropertyId(req.params.propertyId, req.user._id).then((result) => {
+        res.status(constant.HTML_STATUS_CODE.SUCCESS).json(response.success(constant.HTML_STATUS_CODE.SUCCESS, result));
+    }).catch((error) => {
+       res.status(error.status || constant.HTML_STATUS_CODE.INTERNAL_ERROR).json(response.error(error.statusCode || constant.HTML_STATUS_CODE.INTERNAL_ERROR, { message: error.message,req:{headers:req.headers,body:req.body} }));
+    });
+});
+
 
 module.exports = route;
 
