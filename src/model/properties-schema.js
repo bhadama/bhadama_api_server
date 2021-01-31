@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 const propertiesSchema = new Schema({
     roomSize: {
-        type:String,
+        type:Number,
         required:true
     },
     roomType: {
@@ -28,10 +28,16 @@ const propertiesSchema = new Schema({
         type:String,
         default:''
     },
-    location: { 
-        type: {type: String, default:'Point'},
-        coordinates: [{type:String, required:true}]
-    },
+    location: {
+        type: {
+          type: String, 
+          default:'Point'
+        },
+        coordinates: {
+          type: [ Number],
+          required: true,
+        }      
+      },
     place: {
         type:String,
         required:true
@@ -56,7 +62,7 @@ const propertiesSchema = new Schema({
         type:Boolean,
         default:false
     },
-    twoWheeler:{
+    twoWheeler: {
         type:Boolean,
         default:false
     },
@@ -67,34 +73,28 @@ const propertiesSchema = new Schema({
     images: [{type:String}],
     advance: {
         type:Number,
-        default:0
-        
+        default:0  
     },
     age: {
         type:String,
         default:''
-
-
     },
     facing:{
         type:String,
         default:''
     },
     sqft: {
-        type:String,
-        default:''
-        
+        type:Number,
+        required:true
     },
     approved: {
         type:Boolean,
         default:false
     }
-    
 },{timestamps:true})
 
-
-
 module.exports = mongoose.model(constant.MODEL_NAME.PROPERTIES, propertiesSchema);
+
 
 
 

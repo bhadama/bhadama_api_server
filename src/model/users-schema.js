@@ -33,11 +33,34 @@ const userSchema = new Schema({
         type: String,
         trim: true
     },
+    isActive:{
+        type:Boolean,
+        default:true
+    },
+    count:{
+        type:Number,
+        default:10
+    },
+    wishlist:[{
+        type: Schema.Types.ObjectId, 
+        ref: 'properties'
+    }]
 
-}, {
+},
+
+{
     timestamps: true
 });
 
 
 
 module.exports = mongoose.model(constant.MODEL_NAME.USER, userSchema); //Compiling schema to model
+
+
+//find({rent:{$gte:20000,$lt:40000},roomSize:{$gte:1},roomType:"family",city:"kathmandu",
+// 'location.coordinates': {
+//     '$geoWithin': {
+//         '$centerSphere': [[80.60, 26.23], 5/3963.2]
+//     }
+// }
+// })

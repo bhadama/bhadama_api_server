@@ -11,6 +11,32 @@ const ProertyDAO = {
     getByUserId: (userId) => {
         return propertyModel.find({ userId });
     },
+    getByCondition: (query) => {
+        // {rent:{$gte:20000,$lt:40000},roomSize:{$gte:1},roomType:"family",city:"kathmandu",
+// 'location.coordinates': {
+//     '$geoWithin': {
+//         '$centerSphere': [[80.60, 26.23], 5/3963.2]
+//     }
+// }
+// }
+    let condition = {};
+    if(query){
+        if(query.roomSize)
+        condition['roomSize'] = {'$gte':query.roomSize}
+    if(query.city)
+        condition['city'] = query.city;
+    if(query.roomType)
+        condition['roomType'] = query.roomType;
+    if(query.location){
+        condition['location.coordinates'] ={
+                '$geoWithin': {
+                    '$centerSphere': [[query.location.coordinates[0], query.location.coordinates[1]], 5/3963.2]
+                }
+            }
+    }
+    }    
+        return propertyModel.find(condition);
+    },
     comparePassword: (reqPassword, UserPassword) => {
         return reqPassword == UserPassword;
     },

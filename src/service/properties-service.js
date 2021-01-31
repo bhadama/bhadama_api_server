@@ -23,6 +23,15 @@ const PropertyService = {
                     });
                 });
     },
+    getByCondition: (query) => {
+        return new Promise((resolve, reject) => {
+                 propertyDAO.getByCondition(query).then((result) => {
+                        resolve({ message: constant.MESSAGE.PROPERTY.DATA_FOUND, data:result });
+                    }).catch((error) => {
+                        reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR,statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR });
+                    });
+                });
+    },
     updateByPropertyId: (propertyId, userId, updateData) => {
         return new Promise((resolve, reject) => {
                  
