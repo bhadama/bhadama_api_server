@@ -13,7 +13,7 @@ const AuthService = {
                     let isMatched = userDAO.comparePassword(userDetail.pin, userData.pin);
                     if (isMatched) {
                         try {
-                            const payLoad = { _id: userData._id, email: userData.email, username: userData.username, address: userData.address };
+                            const payLoad = { _id: userData._id, email: userData.email, username: userData.username, address: userData.address, role:userData.role };
                             const _token = jwt.sign(payLoad, constant.JWT.SECRET, {
                                 expiresIn: constant.JWT.TOKEN_TIMEOUT
                             });

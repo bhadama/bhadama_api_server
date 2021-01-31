@@ -90,7 +90,11 @@ const propertiesSchema = new Schema({
     approved: {
         type:Boolean,
         default:false
-    }
+    },
+    isActive:{
+        type:Boolean,
+        default:true
+    },
 },{timestamps:true})
 
 module.exports = mongoose.model(constant.MODEL_NAME.PROPERTIES, propertiesSchema);

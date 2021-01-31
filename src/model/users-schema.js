@@ -33,10 +33,6 @@ const userSchema = new Schema({
         type: String,
         trim: true
     },
-    isActive:{
-        type:Boolean,
-        default:true
-    },
     count:{
         type:Number,
         default:10
@@ -44,9 +40,15 @@ const userSchema = new Schema({
     wishlist:[{
         type: Schema.Types.ObjectId, 
         ref: 'properties'
-    }]
+    }],
+    role:{
+        type: String,
+        enum : constant.ROLE,
+        default: 'USER'
+    }
 
 },
+
 
 {
     timestamps: true

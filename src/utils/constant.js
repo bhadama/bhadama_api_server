@@ -3,6 +3,7 @@ const constant = {
     PORT: 80,
     HTML_STATUS_CODE: { SUCCESS: 200, CREATED: 201, UNAUTHORIZED: 401, INVALID_DATA: 406, INTERNAL_ERROR: 500, BAD_REQUEST: 400, NOT_FOUND: 404, INVALID_CREDENTIAL: 405 },
     MODEL_NAME: { TRADE: 'homes', USER: 'users',PROPERTIES:'properties' },
+    ROLE:['USER','ADMIN'],
     MESSAGE: {
         USER: {
             USER_ALREADY_REGISTERED: 'It seems like user is already registered with the same phone number.',
