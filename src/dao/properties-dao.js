@@ -25,6 +25,8 @@ const ProertyDAO = {
         condition['roomSize'] = {'$gte':query.roomSize}
     if(query.city)
         condition['city'] = query.city;
+    if(query.rent)
+        condition['rent'] = {'$gte':query.rent.min, '$lte':query.rent.max}
     if(query.roomType)
         condition['roomType'] = query.roomType;
     if(query.location){
