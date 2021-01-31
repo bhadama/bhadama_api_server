@@ -12,6 +12,7 @@ const ProertyDAO = {
     getByUserId: (userId) => {
         return propertyModel.find({ userId });
     },
+    
     getByCondition: async(query) => {
         // {rent:{$gte:20000,$lt:40000},roomSize:{$gte:1},roomType:"family",city:"kathmandu",
 // 'location.coordinates': {

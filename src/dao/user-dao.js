@@ -21,7 +21,10 @@ const UserDAO = {
     },
     saveNewPin:(data)=>{
         return  userModel.updateOne({phone_number:data.phone_number},{$set:{pin:data.pin}})
-    }
+    },
+    getWishlistProperty: (userId) => {
+        return userModel.find({ _id:userId },{wishlist:1, _id:0}).populate('wishlist');
+    },
 }
 
 module.exports = UserDAO;

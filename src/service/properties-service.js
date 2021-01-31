@@ -1,4 +1,5 @@
 const propertyDAO = require('../dao/properties-dao');
+const userDAO = require('../dao/user-dao');
 const constant = require('../utils/constant');
 const PropertyService = {
     //API to Create Property
@@ -18,6 +19,15 @@ const PropertyService = {
         return new Promise((resolve, reject) => {
                  propertyDAO.getByUserId(userId).then((result) => {
                         resolve({ message: constant.MESSAGE.PROPERTY.DATA_FOUND, data:result });
+                    }).catch((error) => {
+                        reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR,statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR });
+                    });
+                });
+    },
+    getWishlistProperty: (userId) => {
+        return new Promise((resolve, reject) => {
+                 userDAO.getWishlistProperty(userId).then((result) => {
+                        resolve({ message: constant.MESSAGE.PROPERTY.DATA_FOUND, data:result[0].wishlist });
                     }).catch((error) => {
                         reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR,statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR });
                     });
