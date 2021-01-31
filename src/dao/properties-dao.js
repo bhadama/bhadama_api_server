@@ -22,7 +22,7 @@ const ProertyDAO = {
     let condition = {};
     if(query){
         if(query.roomSize)
-        condition['roomSize'] = {'$gte':query.roomSize}
+        condition['roomSize'] = {'$in':query.roomSize};
     if(query.city)
         condition['city'] = query.city;
     if(query.rent)
