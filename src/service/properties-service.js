@@ -64,6 +64,28 @@ const PropertyService = {
                     });
                 });
     },
+    addToWishlist: (userId,id) => {
+        if(!id|| !userId)
+        reject({ status: constant.HTML_STATUS_CODE.SUCCESS, statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA })
+        return new Promise((resolve, reject) => {
+                 propertyDAO.addToWishlist(userId,id).then((result) => {
+                        resolve({ message: constant.MESSAGE.PROPERTY.ADD_WISHLIST});
+                    }).catch((error) => {
+                        reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR,statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR });
+                    });
+                });
+    },
+    removeFromWishlist: (userId,id) => {
+        if(!id|| !userId)
+        reject({ status: constant.HTML_STATUS_CODE.SUCCESS, statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA })
+        return new Promise((resolve, reject) => {
+                 propertyDAO.removeFromWishlist(userId,id).then((result) => {
+                        resolve({ message: constant.MESSAGE.PROPERTY.REMOVE_WISHLIST});
+                    }).catch((error) => {
+                        reject({ status: constant.HTML_STATUS_CODE.INTERNAL_ERROR,statusCode: constant.HTML_STATUS_CODE.INTERNAL_ERROR, message: constant.MESSAGE.COMMON.INTERNAL_ERROR });
+                    });
+                });
+    },
     
 
     

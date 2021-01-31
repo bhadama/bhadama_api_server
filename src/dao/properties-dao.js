@@ -1,4 +1,5 @@
 const propertyModel = require('../model/properties-schema');
+const userModel = require('../model/users-schema');
 const mongoose = require('mongoose');
 const ProertyDAO = {
     create: (userId, propertyDetail) => {
@@ -69,6 +70,14 @@ const ProertyDAO = {
     deleteByPropertyId: (propertyId, userId, updateData ) => {
         console.log('propertyId-', propertyId,userId, updateData);
         return propertyModel.deleteOne({_id:propertyId, userId:userId});
+    },
+    addToWishlist: (userId, id ) => {
+        console.log('userId, propertyId-', userId, id);
+        return userModel.updateOne({_id:userId}, {$addToSet: { wishlist: id } });
+    },
+    removeFromWishlist: (userId, id ) => {
+        console.log('userId, propertyId-', userId, id);
+        return userModel.updateOne({_id:userId}, {$pull: { wishlist: id } });
     },
 }
 

@@ -26,7 +26,10 @@ const constant = {
             CREATED: 'New property created',
             DELETED: 'Property deleted successfully',
             DATA_FOUND: 'Data found',
-            UPDATED:'Updated successfully'
+            UPDATED:'Updated successfully',
+            ADD_WISHLIST:'Property added to Wishlist',
+            REMOVE_WISHLIST:'Property removed from Wishlist'
+
         },
         COMMON: {
             INTERNAL_ERROR: 'Sorry! Something went wrong.',
