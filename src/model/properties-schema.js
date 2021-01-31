@@ -84,8 +84,8 @@ const propertiesSchema = new Schema({
         default:''
     },
     sqft: {
-        type:Number,
-        required:true
+		type:Number,
+		default:0
     },
     approved: {
         type:Boolean,

@@ -24,6 +24,8 @@ const PropertyService = {
                 });
     },
     getByCondition: (query) => {
+        if(!query)
+        reject({ status: constant.HTML_STATUS_CODE.SUCCESS, statusCode: constant.HTML_STATUS_CODE.INVALID_DATA, message: constant.MESSAGE.COMMON.MESSAGE_INVALID_DATA })
         return new Promise((resolve, reject) => {
                  propertyDAO.getByCondition(query).then((result) => {
                         resolve({ message: constant.MESSAGE.PROPERTY.DATA_FOUND, data:result });

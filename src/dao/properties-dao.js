@@ -11,7 +11,7 @@ const ProertyDAO = {
     getByUserId: (userId) => {
         return propertyModel.find({ userId });
     },
-    getByCondition: (query) => {
+    getByCondition: async(query) => {
         // {rent:{$gte:20000,$lt:40000},roomSize:{$gte:1},roomType:"family",city:"kathmandu",
 // 'location.coordinates': {
 //     '$geoWithin': {
@@ -34,10 +34,21 @@ const ProertyDAO = {
                 '$geoWithin': {
                     '$centerSphere': [[query.location.coordinates[0], query.location.coordinates[1]], 5/3963.2]
                 }
-            }
+        }
     }
     }    
-        return propertyModel.find(condition);
+       let result =  await propertyModel.find(condition);
+       if(result.length==0){
+        condition['location.coordinates'] ={
+            '$geoWithin': {
+                '$centerSphere': [[query.location.coordinates[0], query.location.coordinates[1]], 10/3963.2]
+            }
+    }
+        let result = await propertyModel.find(condition);
+        return result;
+       }else{
+           return result;
+       }
     },
     comparePassword: (reqPassword, UserPassword) => {
         return reqPassword == UserPassword;
